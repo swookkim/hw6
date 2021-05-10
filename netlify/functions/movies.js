@@ -35,7 +35,7 @@ exports.handler = async function(event) {
     }
 
     for (let i=0; i < moviesFromCsv.length; i++) {
-      if (year )
+
 
     }
 
