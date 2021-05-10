@@ -29,10 +29,14 @@ exports.handler = async function(event) {
     }
   }
   else {
+    let listingToReturn = moviesFromCsv.includes(${year} && ${genre})
+
     let returnValue = {
       numResults: 0,
       movies: []
     }
+
+    // filter the data using the query parameter
 
     for (let i=0; i < moviesFromCsv.length; i++) {
 
