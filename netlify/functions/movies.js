@@ -36,7 +36,7 @@ exports.handler = async function(event) {
 
     for (let i=0; i < moviesFromCsv.length; i++) {
       if (moviesFromCsv[i].startYear == year && moviesFromCsv[i].genres.includes(`${genre}`)){
-        retunValue.numResults = returnVlaue.numResults + 1
+        returnValue.numResults = returnVlaue.numResults + 1
 
       }  
 
