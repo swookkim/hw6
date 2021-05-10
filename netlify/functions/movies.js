@@ -47,7 +47,7 @@ exports.handler = async function(event) {
 
         returnListing = {
           Title: movie.primaryTitle,
-          Realesd Year: movie.startYear,
+          ReleasedYear: movie.startYear,
           Genre: movie.genres
         }
 
