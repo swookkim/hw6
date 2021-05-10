@@ -39,9 +39,6 @@ exports.handler = async function(event) {
       // Sort out the movies that matches wiht the query parameters
       if (moviesFromCsv[i].startYear == year && moviesFromCsv[i].genres.includes(`${genre}`)){
         
-        // Count the number of movies filtered by the query parameters
-        returnValue.numResults = returnValue.numResults + 1
-
         // Store the values of the movies in the object
         let movie = moviesFromCsv[i]
 
@@ -50,12 +47,19 @@ exports.handler = async function(event) {
           ReleasedYear: movie.startYear,
           Genre: movie.genres
         }
-        // add the movies to the final array
-        returnValue.movies.push(listedMovies)
+
+        // ignore the reults without genre or runtime
+        if (movie.genre !== `\\N` && movie.runtimeMinutes !== `\\N`) {
+          // add the movies to the final array
+          returnValue.movies.push(listedMovies)
+        } 
 
       }  
 
     }
+
+    // count the number of listed movies
+    returnValue.numResults = returnValue.movies.length
 
     // a lambda function returns a status code and a string of data
     return {
