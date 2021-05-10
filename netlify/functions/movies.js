@@ -28,7 +28,6 @@ exports.handler = async function(event) {
     }
   }
   else {
-    console.log(moviesFromCsv)
 
     let returnValue = {
       numResults: 0,
