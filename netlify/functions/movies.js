@@ -45,11 +45,13 @@ exports.handler = async function(event) {
         // Store the values of the movies in the object
         let movie = moviesFromCsv[i]
 
-        returnListing = {
+        listedMovies = {
           Title: movie.primaryTitle,
           ReleasedYear: movie.startYear,
           Genre: movie.genres
         }
+        // add the movies to the final array
+        returnValue.movies.push(listedMovies)
 
       }  
 
