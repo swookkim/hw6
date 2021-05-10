@@ -35,8 +35,21 @@ exports.handler = async function(event) {
     }
 
     for (let i=0; i < moviesFromCsv.length; i++) {
+
+      // Sort out the movies that matches wiht the query parameters
       if (moviesFromCsv[i].startYear == year && moviesFromCsv[i].genres.includes(`${genre}`)){
+        
+        // Count the number of movies filtered by the query parameters
         returnValue.numResults = returnValue.numResults + 1
+
+        // Store the values of the movies in the object
+        let movie = moviesFromCsv[i]
+
+        returnListing = {
+          Title: movie.primaryTitle,
+          Realesd Year: movie.startYear,
+          Genre: movie.genres
+        }
 
       }  
 
